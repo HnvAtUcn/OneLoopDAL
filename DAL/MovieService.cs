@@ -14,11 +14,11 @@ namespace OneLoopDAL.DAL
         public IEnumerable<Movie> GetMovies()
         {
             IEnumerable<Movie> result= new List<Movie>();   
-            JsonNode? movies = DALBase.GetEntities<Movie>();
+            JsonNode movies = DALBase.GetEntities<Movie>();
             if (movies != null)
             {
-                JsonNode? mov = movies["docs"];
-                result = JsonSerializer.Deserialize<List<Movie>>(mov!.AsArray().ToString())!;
+                JsonNode docs = movies["docs"]!;
+                result = JsonSerializer.Deserialize<List<Movie>>(docs.AsArray().ToString())!;
             }
 
             return result; 

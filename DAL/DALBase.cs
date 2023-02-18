@@ -85,7 +85,7 @@ namespace OneLoopDAL.DAL
             File.WriteAllText(jsonPath, dbContent);
         }
 
-        public static JsonNode? GetEntities<T>()
+        public static JsonNode GetEntities<T>()
         {
             return GetEntityNode<T>();
         }
@@ -290,7 +290,7 @@ namespace OneLoopDAL.DAL
                 ReadData();
         }
 
-        public static JsonNode? GetEntityNode<T>()
+        public static JsonNode GetEntityNode<T>()
         {
             CheckData();
 
@@ -312,7 +312,7 @@ namespace OneLoopDAL.DAL
                     return ChapterNode;
 
                 default:
-                    return null;
+                    return empty;
             }
         }
 
