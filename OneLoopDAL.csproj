@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DAL\Root.cs" />
+    <Compile Remove="Models\Books.cs" />
+    <Compile Remove="Models\Chapters.cs" />
+    <Compile Remove="Models\Characters.cs" />
+    <Compile Remove="Models\Movies.cs" />
+    <Compile Remove="Models\Quotes.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\OneApiBooks.json" />
+    <None Remove="Data\OneApiChapters.json" />
+    <None Remove="Data\OneApiCharacters.json" />
+    <None Remove="Data\OneApiMovie.json" />
+    <None Remove="Data\OneApiMovies.json" />
+    <None Remove="Data\OneApiQuotes.json" />
+    <None Remove="Data\OneApiTest.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\OneApiBackup.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\OneApi.bak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\OneApi.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
