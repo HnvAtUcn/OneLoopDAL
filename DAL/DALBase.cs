@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Security.Cryptography;
 
 namespace OneLoopDAL.DAL
 {
@@ -96,32 +97,6 @@ namespace OneLoopDAL.DAL
                 return null;
             JsonArray? source = (JsonArray)jsonNode["docs"]!; 
 
-            //switch (typeof(T))
-            //{
-            //    case Type type when type == typeof(Movie):
-            //        source = (JsonArray)MovieNode["docs"]!;
-            //        break;
-
-            //    case Type type when type == typeof(Book):
-            //        source = (JsonArray)BookNode["docs"]!;
-            //        break;
-
-            //    case Type type when type == typeof(Character):
-            //        source = (JsonArray)CharacterNode["docs"]!;
-            //        break;
-
-            //    case Type type when type == typeof(Quote):
-            //        source = (JsonArray)QuoteNode["docs"]!;
-            //        break;
-
-            //    case Type type when type == typeof(Chapter):
-            //        source = (JsonArray)ChapterNode["docs"]!;
-            //        break;
-
-            //    default:
-            //        return empty;
-            //}
-
             foreach (var res in source)
             {
                 string _id = (string)res!["_id"]!;
@@ -204,34 +179,41 @@ namespace OneLoopDAL.DAL
                 return;
             JsonArray? source = (JsonArray)jsonNode["docs"]!;
             JsonNode insertNode;
-
-            string newEntity = "";
             int end = source.Count;
+            string newEntity;
+
+            byte[] theBytes = RandomNumberGenerator.GetBytes(24);
+            string NewID = Convert.ToBase64String(theBytes);
 
             switch (typeof(T))
             {
                 case Type type when type == typeof(Movie):
                     Movie movie2Insert = (Movie)object2Insert;
+                    movie2Insert._id = NewID;
                     newEntity = JsonSerializer.Serialize(movie2Insert, typeof(Movie));
                     break;
 
                 case Type type when type == typeof(Book):
                     Book book2Insert = (Book)object2Insert;
+                    book2Insert._id = NewID;
                     newEntity = JsonSerializer.Serialize(book2Insert, typeof(Book));
                     break;
 
                 case Type type when type == typeof(Character):
                     Character character2Insert = (Character)object2Insert;
+                    character2Insert._id = NewID;
                     newEntity = JsonSerializer.Serialize(character2Insert, typeof(Character));
                     break;
 
                 case Type type when type == typeof(Quote):
                     Quote quote2Insert = (Quote)object2Insert;
+                    quote2Insert._id = NewID;
                     newEntity = JsonSerializer.Serialize(quote2Insert, typeof(Quote));
                     break;
 
                 case Type type when type == typeof(Chapter):
                     Chapter chapter2Insert = (Chapter)object2Insert;
+                    chapter2Insert._id = NewID;
                     newEntity = JsonSerializer.Serialize(chapter2Insert, typeof(Chapter));
                     break;
 

@@ -36,7 +36,6 @@ m = movieService.GetMovie(theMovies.ElementAt(0)._id);
 
 Movie nm = new();
 nm.name = "New one";
-nm._id = "1234";
 movieService.InsertMovie(nm);
 DALBase.SaveDatabase();
 movieService.DeleteMovie(nm);
