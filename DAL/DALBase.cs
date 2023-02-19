@@ -178,12 +178,21 @@ namespace OneLoopDAL.DAL
             if (jsonNode == null)
                 return;
             JsonArray? source = (JsonArray)jsonNode["docs"]!;
+
             JsonNode insertNode;
             int end = source.Count;
             string newEntity;
+            string NewID;
+            int nLetters = 24;
 
-            byte[] theBytes = RandomNumberGenerator.GetBytes(24);
-            string NewID = Convert.ToBase64String(theBytes);
+            using (var crypto = RandomNumberGenerator.Create())
+            {
+                var bits = (nLetters * 6);
+                var byte_size = ((bits + 7) / 8);
+                var bytesarray = new byte[byte_size];
+                crypto.GetBytes(bytesarray);
+                NewID = Convert.ToBase64String(bytesarray); 
+            }
 
             switch (typeof(T))
             {
