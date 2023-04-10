@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OneLoopDAL.DAL
 {
-    internal class MovieService
+    public class MovieService
     {
         public IEnumerable<Movie> GetMovies()
         {

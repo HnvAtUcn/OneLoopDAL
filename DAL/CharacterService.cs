@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OneLoopDAL.Models
 {
-    internal class CharacterService
+    public class CharacterService
     {
         public IEnumerable<Character> GetCharacters()
         {

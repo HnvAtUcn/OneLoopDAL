@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OneLoopDAL.DAL
 {
-    internal class QuoteService
+    public class QuoteService
     {
         public IEnumerable<Quote> GetQuotes()
         {

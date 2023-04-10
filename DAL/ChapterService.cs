@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OneLoopDAL.DAL
 {
-    internal class ChapterService
+    public class ChapterService
     {
         public IEnumerable<Chapter> GetChapters()
         {
