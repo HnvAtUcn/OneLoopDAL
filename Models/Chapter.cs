@@ -9,7 +9,7 @@ namespace OneLoopDAL.Models
     public class Chapter
     {
         public string _id { get; set; }
-        public string ChapterName { get; set; }
-        public string Book { get; set; }
+        public string chapterName { get; set; }
+        public string book { get; set; }
     }
 }

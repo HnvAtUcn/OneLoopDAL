@@ -12,6 +12,7 @@ namespace OneLoopDAL.DAL
     public class DALBase
     {
         private static bool MustRead = true;
+        private static string _dataDir;
 
         protected static JsonNode TopNode = new JsonObject();
         protected static JsonNode MovieNode = new JsonObject();
@@ -22,10 +23,18 @@ namespace OneLoopDAL.DAL
 
         protected static JsonArray empty = new JsonArray();
 
+        static DALBase()
+        {
+            _dataDir = @"\Data\"; 
+        }
+        public static void SetDataDir(string dataDir)
+        {
+            _dataDir = dataDir;
+        }
 
         private static void ReadData()
         {
-            string jsonPath = Directory.GetCurrentDirectory() + @"\Data\OneApi.json";
+            string jsonPath = Directory.GetCurrentDirectory() + _dataDir + "OneApi.json";
 
             if (File.Exists(jsonPath))
             {
@@ -57,10 +66,10 @@ namespace OneLoopDAL.DAL
 
         public static void ResetDatabase()
         {
-            string originalDataPath = Directory.GetCurrentDirectory() + @"\Data\OneApi.bak";
+            string originalDataPath = Directory.GetCurrentDirectory() + _dataDir + "OneApi.bak"; 
             if (File.Exists(originalDataPath))
             {
-                string jsonPath = Directory.GetCurrentDirectory() + @"\Data\OneApi.json";
+                string jsonPath = Directory.GetCurrentDirectory() + _dataDir + "OneApi.json";
                 if (File.Exists(jsonPath))
                 {
                     File.Delete(jsonPath);
@@ -71,10 +80,10 @@ namespace OneLoopDAL.DAL
 
         public static void SaveDatabase()
         {
-            string jsonPath = Directory.GetCurrentDirectory() + @"\Data\OneApi.json";
+            string jsonPath = Directory.GetCurrentDirectory() + _dataDir + "OneApi.json";
             if (File.Exists(jsonPath))
             {
-                string backupPath = Directory.GetCurrentDirectory() + @"\Data\OneApiBackup.json";
+                string backupPath = Directory.GetCurrentDirectory() + _dataDir + "OneApiBackup.json";
                 if (File.Exists(backupPath))
                 {
                     File.Delete(backupPath);

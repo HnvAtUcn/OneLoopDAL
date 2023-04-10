@@ -3,6 +3,7 @@ using OneLoopDAL.DAL;
 using OneLoopDAL.Models;
 using System.Linq;
 
+DALBase.SetDataDir(@"\DataSource\");
 DALBase.ResetDatabase();
 
 MovieService movieService = new();

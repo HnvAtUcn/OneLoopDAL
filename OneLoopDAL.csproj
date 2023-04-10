@@ -17,23 +17,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Data\OneApiBooks.json" />
-    <None Remove="Data\OneApiChapters.json" />
-    <None Remove="Data\OneApiCharacters.json" />
-    <None Remove="Data\OneApiMovie.json" />
-    <None Remove="Data\OneApiMovies.json" />
-    <None Remove="Data\OneApiQuotes.json" />
-    <None Remove="Data\OneApiTest.json" />
+    <None Remove="DataSource\OneApiBooks.json" />
+    <None Remove="DataSource\OneApiChapters.json" />
+    <None Remove="DataSource\OneApiCharacters.json" />
+    <None Remove="DataSource\OneApiMovie.json" />
+    <None Remove="DataSource\OneApiMovies.json" />
+    <None Remove="DataSource\OneApiQuotes.json" />
+    <None Remove="DataSource\OneApiTest.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\OneApiBackup.json">
+    <None Update="DataSource\OneApiBackup.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\OneApi.bak">
+    <None Update="DataSource\OneApi.bak">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\OneApi.json">
+    <None Update="DataSource\OneApi.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
